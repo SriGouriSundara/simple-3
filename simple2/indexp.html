@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+</head>
+<body>
+
+    <h2>Student Management System</h2>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="roll" placeholder="Enter Roll Number">
+
+    <button type="button" onclick="addStudent()">Add Student</button>
+
+    <h3>Student Details</h3>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll Number</th>
+            </tr>
+        </thead>
+
+        <tbody id="students"></tbody>
+    </table>
+
+    <script>
+        function addStudent() {
+            var name = document.getElementById("name").value;
+            var roll = document.getElementById("roll").value;
+
+            if (name.trim() === "" || roll.trim() === "") {
+                alert("Please enter both name and roll number");
+                return;
+            }
+
+            var table = document.getElementById("students");
+
+            var row = table.insertRow();
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+
+            cell1.textContent = name;
+            cell2.textContent = roll;
+
+            document.getElementById("name").value = "";
+            document.getElementById("roll").value = "";
+        }
+    </script>
+
+</body>
+</html>
